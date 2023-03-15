@@ -1,52 +1,50 @@
-// const form = document.querySelector('form');
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contact');
+  form.addEventListener('submit', handleSubmit);
+});
 
-// form.addEventListener('submit', function(event) {
-//   event.preventDefault();
-  
-//   const formData = new FormData(form);
-//   console.log(form, "form")
-//   fetch('/https://portfolio.praestohealth.com.ng:3000/submit-data', {
-//     method: 'POST',
-//     body: formData
-//   })
-//   .then(response => {
-//     if (response.ok) {
-//         console.log('sucess')
-//     } else {
-//         console.log('failed')
-//     }
-//   })
-//   .catch(error => {
-//     console.log('error')
-//   });
-// });
-async function submitData(event) {
-    event.preventDefault();
+async function handleSubmit(event) {
+  event.preventDefault();
 
-    const data = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      message: event.target.message.value
-    };
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
 
-    try {
-      const response = await fetch('http://localhost:3000/submit-data', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
+  const data = {
+      name: name,
+      email: email,
+      message: message,
+  };
 
+  try {
+      const response = await sendDataToBackend(data);
+      console.log(response, 'response')
       if (response.ok) {
-        const result = await response.text();
-          console.log('Response:', result);
-        } else {
-          console.error('Error:', response.status, response.statusText);
-        }
-      } catch (error) {
-        console.error('Error:', error);
+          // Handle success, e.g., show the alert message
+          const responseData = await response.json()
+         window.alert(responseData.message)
+      } else {
+          // Handle error, e.g., show an error message
+
       }
-    }
-    document.getElementById('contact').addEventListener('submit', submitData);
+  } catch (error) {
+      // Handle network error, e.g., show an error message
+  }
+}
+
+
+async function sendDataToBackend(data) {
+  const url = "http://localhost:3000/submit-data"
+
+  const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+  });
+
+  return response;
+}
+
 
