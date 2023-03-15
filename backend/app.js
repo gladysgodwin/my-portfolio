@@ -15,7 +15,7 @@ app.post('/submit-data', (req, res) => {
 
   //connect to database here
 
-  res.json('Thank you for reaching out, I will get back to you shortly');
+  res.json({message:'Thank you for reaching out, I will get back to you shortly'})
 });
 
 app.listen(port, () => {
