@@ -8,8 +8,8 @@ spec:
   ports:
     - name: frontend
       port: 80
-      targetPort: 3000
+      targetPort: 3001
     - name: backend
       port: 5000
-      targetPort: 5000
+      targetPort: 5090
   type: LoadBalancer
