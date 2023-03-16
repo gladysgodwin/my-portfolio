@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  namespace: my-website-portfolio
 spec:
   replicas: 2
   selector:
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gladysgodwin/my-website-portfolio-frontend:2023
+        image: gladysgodwin/my-website-portfolio:2023
         ports:
         - containerPort: 80
         env:

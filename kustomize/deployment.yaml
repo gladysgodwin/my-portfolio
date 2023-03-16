@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-website-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-website-portfolio
+  template:
+    metadata:
+      labels:
+        app: my-website-portfolio
+    spec:
+      containers:
+      - name: frontend
+        image: gladysgodwin/my-website-portfolio:latest
+        ports:
+        - containerPort: 3000
+      - name: backend
+        image: gladysgodwin/my-website-portfolio:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: POSTGRES_HOST
+          value: postgres
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: postgres
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: gladys
