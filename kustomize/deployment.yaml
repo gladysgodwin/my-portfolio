@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gladysgodwin/my-website-portfolio:latest
+        image: gladysgodwin/my-website-portfolio:2023
         ports:
         - containerPort: 3000
       - name: backend
-        image: gladysgodwin/my-website-portfolio:latest
+        image: gladysgodwin/my-website-portfolio:2023
         ports:
         - containerPort: 5000
         env:
