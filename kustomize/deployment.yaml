@@ -22,15 +22,9 @@ spec:
         ports:
         - containerPort: 5000
         env:
-        - name: POSTGRES_HOST
-          value: postgres
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: postgres
-              key: postgres
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: gladys
-              key: gladys
+          - name: POSTGRES_HOST
+            value: db
+          - name: POSTGRES_USER
+            value: postgres
+          - name: POSTGRES_PASSWORD
+            value: gladys
