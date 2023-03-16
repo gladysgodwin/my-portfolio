@@ -16,7 +16,6 @@ spec:
       - name: frontend
         image: gladysgodwin/my-website-portfolio-frontend:2023
         ports:
-        - name: http
         - containerPort: 3000
       - name: backend
         image: gladysgodwin/my-website-portfolio-backend:2023
