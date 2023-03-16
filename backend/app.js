@@ -3,11 +3,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
+const db = require('./db');
 app.use(cors());
 app.use(bodyParser.json());
-
+db.connect();
 app.get('/result', (req, res) => {
-  res.json('Thank you for reaching out .....');
+  res.json('Thank you for reaching out, I will get back to you shortly');
 });
 
 app.post('/submit-data', (req, res) => {
