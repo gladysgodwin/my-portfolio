@@ -1,17 +1,15 @@
-# Use an official nginx runtime as the parent image
+# Use an official Nginx runtime as a parent image
 FROM nginx:alpine
 
-# Set the working directory to /frontend
-WORKDIR /frontend
-
-# Copy the application code to the container
-COPY portfolio/ .
-
-# Replace the default nginx configuration file with our own
+# Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose the port on which the application will run
+# Copy your static files to the appropriate directory
+COPY /frontend/portfolio /usr/share/nginx/html
+
+# Expose port 80
 EXPOSE 80
 
-# Set the command to start nginx
+# Start the Nginx service when the container runs
 CMD ["nginx", "-g", "daemon off;"]
+
