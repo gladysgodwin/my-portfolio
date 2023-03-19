@@ -17,10 +17,10 @@ spec:
         image: gladysgodwin/my-website-portfolio-frontend:2023
         ports:
         - containerPort: 3000
-      - name: backend
-        image: gladysgodwin/my-website-portfolio-backend:2023
-        ports:
-        - containerPort: 5000
+      #- name: backend
+        #image: gladysgodwin/my-website-portfolio-backend:2023
+       # ports:
+        #- containerPort: 5000
         env:
           - name: POSTGRES_HOST
             value: db
