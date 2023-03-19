@@ -9,6 +9,9 @@ spec:
     - name: frontend
       port: 80
       targetPort: 3000
+    - name: frontend-https
+      port: 443
+      targetPort: 3000
     - name: backend
       port: 5000
       targetPort: 5000
