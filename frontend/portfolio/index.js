@@ -34,7 +34,7 @@ async function handleSubmit(event) {
 
 
 async function sendDataToBackend(data) {
-  const url = "http://localhost:3000/submit-data"
+  const url = process.env.SERVER_URL || "http://portfolio_backend:3000/submit-data";
 
   const response = await fetch(url, {
       method: 'POST',
