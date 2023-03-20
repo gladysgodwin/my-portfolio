@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gladysgodwin/portfolio_frontend
+        image: gladysgodwin/portfolio_frontend:latest
         ports:
         - containerPort: 8090
       - name: backend
-        image: gladysgodwin/portfolio_backend
+        image: gladysgodwin/portfolio_backend:latest
         ports:
         - containerPort: 9696
         env:
