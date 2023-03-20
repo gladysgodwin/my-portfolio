@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-website-portfolio
+  name: my-portfolio
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-website-portfolio
+      app: my-portfolio
   template:
     metadata:
       labels:
-        app: my-website-portfolio
+        app: my-portfolio
     spec:
       containers:
       - name: frontend
