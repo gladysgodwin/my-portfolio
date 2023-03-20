@@ -23,7 +23,7 @@ spec:
         - containerPort: 9696
         env:
           - name: SERVER_URL
-            value: http://portfolio_backend:3000/submit-data
+            value: http://my-portfolio:3000/submit-data
           - name: POSTGRES_HOST
             value: db
           - name: POSTGRES_USER
