@@ -8,11 +8,11 @@ spec:
   ports:
     - name: frontend
       port: 80
-      targetPort: 3000
+      targetPort: 8090
     - name: frontend-https
       port: 443
       targetPort: 3000
-   # - name: backend
-   #   port: 5000
-   #   targetPort: 5000
+    - name: backend
+      port: 5000
+      targetPort: 5000
   type: LoadBalancer
