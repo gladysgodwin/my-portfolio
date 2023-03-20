@@ -14,13 +14,13 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gladysgodwin/the-portfolio-frontend:2.0
+        image: gladysgodwin/portfolio_frontend
         ports:
-        - containerPort: 3000
-     # - name: backend
-     #   image: gladysgodwin/my-website-portfolio-backend:2023
-      #  ports:
-      #  - containerPort: 5000
+        - containerPort: 8090
+      - name: backend
+        image: gladysgodwin/portfolio_backend
+        ports:
+        - containerPort: 9696
         env:
           - name: SERVER_URL
             value: http://portfolio_backend:3000/submit-data
