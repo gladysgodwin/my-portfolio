@@ -22,11 +22,18 @@ spec:
         ports:
         - containerPort: 9696
         env:
-          - name: SERVER_URL
-            value: http://my-portfolio:3000/submit-data
-          - name: POSTGRES_HOST
-            value: db
-          - name: POSTGRES_USER
-            value: postgres
+          - name: DB_URL
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres-url
+          - name: USER_NAME
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secret
+                key: postgres-user
           - name: POSTGRES_PASSWORD
-            value: gladys
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secret
+                key: postgres_password
