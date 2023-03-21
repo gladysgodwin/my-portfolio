@@ -4,3 +4,4 @@ metadata:
   name: postgres-configmap
 data:
   postgres-url: http://my-portfolio:3000/submit-data
+  
