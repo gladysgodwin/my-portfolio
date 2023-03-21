@@ -21,7 +21,7 @@ spec:
         image: gladysgodwin/portfolio_backend:latest
         ports:
         - containerPort: 9696
-      - name: postgres_database
+      - name: database
         image: postgres:latest
         ports:
         - containerPort: 5432
